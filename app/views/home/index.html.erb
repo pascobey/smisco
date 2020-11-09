@@ -1,0 +1,54 @@
+<% content_for :title, 'HOME' %>
+<% manufacturers = ['Volvo', 'Nissan', 'Infinity', 'BMW', 'Audi', 'Saab', 'Volkswagen', 'Honda', 'Hyundai', 'Toyota', 'Mazda'] %>
+
+<div class="row d-flex justify-content-center mt-2">
+    <div class="col-12 col-lg-10 col-xl-8">
+        <%= image_tag("smiscoWebSign.png", class: 'rounded-top shadow-lg', style: 'width: 100%;') %>
+    </div>
+</div>
+<div class="row d-flex justify-content-center mb-1">
+    <div class="col-12 col-lg-10 col-xl-8">
+        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-light">
+            <% ms = '' %>
+            <% manufacturers.each do |m| %>
+                <% if ms != '' %>
+                    <% ms = "#{ms} - #{m}" %>
+                <% else %>
+                    <% ms = "#{m}" %>
+                <% end %>
+            <% end %>
+            <%= content_tag(:p, "#{ms.upcase} - #{ms.upcase} - #{ms.upcase}", class: 'font-weight-bold mb-0', style: 'font-size: 1.5rem;') %>
+        </div>
+    </div>
+</div>
+<div class="row d-flex justify-content-center">
+    <div class="col-12 col-lg-10 col-xl-8">
+        <div class="d-flex justify-content-center">
+            <div class="d-flex flex-column">
+                <a href="tel:9013723716">
+                    <button class="btn btn-outline-green m-1 shadow">Call: +1(901)372-3716</button>    
+                </a>
+                <a href="">
+                    <button class="btn btn-outline-yellow m-1 shadow"><%= image_tag('findUsOnFacebook.png', style: 'width: 9rem;') %>
+                </a>
+            </div>
+            <div id="hours" class="text-center d-flex p-1 border border-secondary text-light m-1 shadow rounded" style="height: 100%;">
+                Monday - Friday<br>
+                8:00 am to 5:30 pm<br>
+                Closed Saturday & Sunday<br>
+            </div>
+            <a href="https://www.google.com/maps/search/?api=1&query=smisco+independent+volvo+import+services+center">
+                <button class="btn btn-outline-three m-1 shadow">
+                    <p id="address" class="m-0">
+                        Visit:<br>
+                        2032 Sycamore View,<br>
+                        Suite 104<br>
+                        Memphis, TN 38134, USA
+                    </p>
+                </button>
+            </a>
+        </div>
+    </div>
+</div>
+
+                

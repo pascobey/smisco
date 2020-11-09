@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+$body-bg: #272727;
+$body-color: #FCFFFC;
+$theme-colors: (
+    'primary': #190596,
+    'secondary': #FF0035,
+    'three': #56A3A6,
+    'green': #23CE6B,
+    'yellow': #E3B505,
+    'light': #FCFFFC,
+    'dark': #272727
+);
+@import 'bootstrap/scss/bootstrap';

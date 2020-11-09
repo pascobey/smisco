@@ -1,15 +1,37 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>SmiscoRefactor</title>
+    <title>smisco | <%= yield(:title) %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-
   <body>
-    <%= yield %>
+    <%# notice bar - container-fluid %>
+    <div id="flash" class="container-fluid">
+      <% flash.each do |name, msg| %>
+        <%= content_tag :div, msg, id: 'flash-content' %>
+      <% end %>
+    </div><%# notice bar - container-fluid %>
+    <%# yield-container - container-fluid %>
+    <div id="yield-container" class="container-fluid">
+      <%= yield %>
+    </div><%# yield-container - container-fluid %>
+
+
+  <script>
+    // window.onload = function() {
+    //   // var bootstrap_enabled = (typeof $().modal == 'function');
+    //   if (window.jQuery) {  
+    //     // jQuery is loaded  
+    //     alert("Yeah!");
+    //   } else {
+    //     // jQuery is not loaded
+    //     alert("Doesn't Work");
+    //   }
+    // }
+  </script>
+
   </body>
 </html>

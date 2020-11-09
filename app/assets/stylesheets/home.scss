@@ -1,0 +1,56 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.marquee {
+ height: 32px;	
+ overflow: hidden;
+ position: relative;
+}
+.marquee p {
+ position: absolute;
+ top: -10px;
+ width: 600%;
+ height: 100%;
+ margin: 0;
+ line-height: 50px;
+ text-align: center;
+ left: -209%;
+ /* Starting position */
+ -moz-transform:translateX(19%);
+ -webkit-transform:translateX(19%);	
+ transform:translateX(19%);
+ /* Apply animation to this element */	
+ -moz-animation: scroll-left 100s linear infinite;
+ -webkit-animation: scroll-left 100s linear infinite;
+ animation: scroll-left 100s linear infinite;
+}
+/* Move it (define the animation) */
+@-moz-keyframes scroll-left {
+ 0%   { -moz-transform: translateX(19%); }
+ 50%   { -moz-transform: translateX(-19%); }
+ 100%   { -moz-transform: translateX(19%); }
+}
+@-webkit-keyframes scroll-left {
+ 0%   { -webkit-transform: translateX(19%); }
+ 50%   { -webkit-transform: translateX(-19%); }
+ 100%   { -webkit-transform: translateX(19%); }
+}
+@keyframes scroll-left {
+ 0%   { 
+ -moz-transform: translateX(19%); /* Browser bug fix */
+ -webkit-transform: translateX(19%); /* Browser bug fix */
+ transform: translateX(19%); 		
+ }
+ 50%   { 
+ -moz-transform: translateX(-19%); /* Browser bug fix */
+ -webkit-transform: translateX(-19%); /* Browser bug fix */
+ transform: translateX(-19%); 		
+ }
+ 100%   { 
+ -moz-transform: translateX(19%); /* Browser bug fix */
+ -webkit-transform: translateX(19%); /* Browser bug fix */
+ transform: translateX(19%); 		
+ }
+}
