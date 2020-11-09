@@ -8,7 +8,7 @@
 </div>
 <div class="row d-flex justify-content-center mb-1">
     <div class="col-12 col-lg-10 col-xl-8">
-        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-light">
+        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-tea">
             <% ms = '' %>
             <% manufacturers.each do |m| %>
                 <% if ms != '' %>
@@ -22,31 +22,34 @@
     </div>
 </div>
 <div class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-10 col-xl-8">
-        <div class="d-flex justify-content-center">
-            <div class="d-flex flex-column">
+    <div class="col-12 col-lg-10 col-xl-8 d-flex justify-content-start">
+        <div class="d-flex flex-row justify-content-center">
+            <div class="col-4">
                 <a href="tel:9013723716">
-                    <button class="btn btn-outline-green m-1 shadow">Call: +1(901)372-3716</button>    
+                    <button class="btn btn-outline-green m-1 shadow w-100">Call: +1(901)372-3716</button>    
                 </a>
-                <a href="">
-                    <button class="btn btn-outline-yellow m-1 shadow"><%= image_tag('findUsOnFacebook.png', style: 'width: 9rem;') %>
+                <a href="https://www.facebook.com/pages/category/Automotive-Repair-Shop/SMISCO-Independent-Volvo-and-Import-198717226153/">
+                    <button class="btn btn-outline-tea m-1 shadow w-100"><%= image_tag('findUsOnFacebook.png', style: 'width: 9rem;') %></button>
                 </a>
             </div>
-            <div id="hours" class="text-center d-flex p-1 border border-secondary text-light m-1 shadow rounded" style="height: 100%;">
-                Monday - Friday<br>
-                8:00 am to 5:30 pm<br>
-                Closed Saturday & Sunday<br>
+            <div class="col-4">
+                <a href="https://www.google.com/maps/search/?api=1&query=smisco+independent+volvo+import+services+center">
+                    <button id="visit-button" class="btn btn-outline-three m-1 shadow w-100">
+                        <p id="address" class="m-0">
+                            2032 Sycamore View,<br>
+                            Suite 104<br>
+                            Memphis, TN 38134, USA
+                        </p>
+                    </button>
+                </a>
             </div>
-            <a href="https://www.google.com/maps/search/?api=1&query=smisco+independent+volvo+import+services+center">
-                <button class="btn btn-outline-three m-1 shadow">
-                    <p id="address" class="m-0">
-                        Visit:<br>
-                        2032 Sycamore View,<br>
-                        Suite 104<br>
-                        Memphis, TN 38134, USA
-                    </p>
-                </button>
-            </a>
+            <div class="col-4 d-flex justify-content-center">
+                <p id="hours" class="text-center p-1 border border-secondary text-tea m-1 shadow rounded w-100">
+                    Monday - Friday<br>
+                    8:00 am to 5:30 pm<br>
+                    Closed Saturday & Sunday<br>
+                </p>
+            </div>
         </div>
     </div>
 </div>
