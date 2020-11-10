@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %><link href="https://fonts.googleapis.com/css2?family=Racing+Sans+One&display=swap" rel="stylesheet">
   </head>
   <body>
     <%# notice bar - container-fluid %>
@@ -15,23 +15,8 @@
       <% end %>
     </div><%# notice bar - container-fluid %>
     <%# yield-container - container-fluid %>
-    <div id="yield-container" class="container-fluid">
+    <div id="yield-container" class="container-lg">
       <%= yield %>
     </div><%# yield-container - container-fluid %>
-
-
-  <script>
-    // window.onload = function() {
-    //   // var bootstrap_enabled = (typeof $().modal == 'function');
-    //   if (window.jQuery) {  
-    //     // jQuery is loaded  
-    //     alert("Yeah!");
-    //   } else {
-    //     // jQuery is not loaded
-    //     alert("Doesn't Work");
-    //   }
-    // }
-  </script>
-
   </body>
 </html>

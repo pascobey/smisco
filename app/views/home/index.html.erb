@@ -1,57 +1,120 @@
+
 <% content_for :title, 'HOME' %>
-<% manufacturers = ['Volvo', 'Nissan', 'Infinity', 'BMW', 'Audi', 'Saab', 'Volkswagen', 'Honda', 'Hyundai', 'Toyota', 'Mazda'] %>
+<% @reflex_variables = { reflex_pages: @reflex_pages } %>
 
-<div class="row d-flex justify-content-center mt-2">
-    <div class="col-12 col-lg-10 col-xl-8">
-        <%= image_tag("smiscoWebSign.png", class: 'rounded-top shadow-lg', style: 'width: 100%;') %>
+<% now = Time.now %>
+
+
+<% if @reflex_pages['HOME'] %>
+
+
+    <div class="row mt-2">
+        <div class="col-12">
+            <%= image_tag("smiscoWebSign.png", class: 'rounded-top shadow-lg', style: 'width: 100%;') %>
+        </div>
     </div>
-</div>
-<div class="row d-flex justify-content-center mb-1">
-    <div class="col-12 col-lg-10 col-xl-8">
-        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-tea">
-            <% ms = '' %>
-            <% manufacturers.each do |m| %>
-                <% if ms != '' %>
-                    <% ms = "#{ms} - #{m}" %>
-                <% else %>
-                    <% ms = "#{m}" %>
+
+    <div class="row mb-2">
+        <div class="col-12">
+            <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-light">
+                <% ms = '' %>
+                <% @manufacturers.each do |m| %>
+                    <% if ms != '' %>
+                        <% ms = "#{ms} - #{m}" %>
+                    <% else %>
+                        <% ms = "#{m}" %>
+                    <% end %>
                 <% end %>
-            <% end %>
-            <%= content_tag(:p, "#{ms.upcase} - #{ms.upcase} - #{ms.upcase}", class: 'font-weight-bold mb-0', style: 'font-size: 1.5rem;') %>
-        </div>
-    </div>
-</div>
-<div class="row d-flex justify-content-center">
-    <div class="col-12 col-lg-10 col-xl-8 d-flex justify-content-start">
-        <div class="d-flex flex-row justify-content-center">
-            <div class="col-4">
-                <a href="tel:9013723716">
-                    <button class="btn btn-outline-green m-1 shadow w-100">Call: +1(901)372-3716</button>    
-                </a>
-                <a href="https://www.facebook.com/pages/category/Automotive-Repair-Shop/SMISCO-Independent-Volvo-and-Import-198717226153/">
-                    <button class="btn btn-outline-tea m-1 shadow w-100"><%= image_tag('findUsOnFacebook.png', style: 'width: 9rem;') %></button>
-                </a>
-            </div>
-            <div class="col-4">
-                <a href="https://www.google.com/maps/search/?api=1&query=smisco+independent+volvo+import+services+center">
-                    <button id="visit-button" class="btn btn-outline-three m-1 shadow w-100">
-                        <p id="address" class="m-0">
-                            2032 Sycamore View,<br>
-                            Suite 104<br>
-                            Memphis, TN 38134, USA
-                        </p>
-                    </button>
-                </a>
-            </div>
-            <div class="col-4 d-flex justify-content-center">
-                <p id="hours" class="text-center p-1 border border-secondary text-tea m-1 shadow rounded w-100">
-                    Monday - Friday<br>
-                    8:00 am to 5:30 pm<br>
-                    Closed Saturday & Sunday<br>
-                </p>
+                <%= content_tag(:p, "#{ms.upcase} - #{ms.upcase} - #{ms.upcase}", class: 'font-weight-bold mb-0', style: 'font-size: 1.4rem;') %>
             </div>
         </div>
     </div>
-</div>
 
-                
+    <div class="row mb-1">
+        <div class="col-sm-12 col-lg-4">
+            <p id="hours" class="text-center p-1 border border-secondary text-light shadow mb-1 rounded w-100">
+                Monday - Friday<br>
+                8:00 am to 5:30 pm<br>
+                Closed Saturday & Sunday<br>
+            </p>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+            <a href="tel:9013723716">
+                <button class="btn btn-outline-green shadow mb-1 w-100">📞 +1(901)372-3716</button>    
+            </a>
+            <a href="https://www.facebook.com/pages/category/Automotive-Repair-Shop/SMISCO-Independent-Volvo-and-Import-198717226153/">
+                <button class="btn btn-outline-tea shadow mb-1 w-100"><%= image_tag('findUsOnFacebook.png', style: 'width: 9rem;') %></button>
+            </a>
+        </div>
+        <div class="col-sm-12 col-lg-4">
+            <a href="https://www.google.com/maps/search/?api=1&query=smisco+independent+volvo+import+services+center">
+                <button id="visit-button" class="btn btn-outline-three shadow mb-1 w-100">
+                    <p id="address" class="m-0">
+                        2032 Sycamore View,<br>
+                        Suite 104<br>
+                        Memphis, TN 38134, USA
+                    </p>
+                </button>
+            </a>
+        </div>
+    </div>
+
+    <div class="row mb-1">
+        <div class="col-12 mb-1">
+            <div class="text-center bg-light p-1 rounded border border-three">
+                <h5 class="text-dark mb-1 border-bottom border-three"><em>Right now</em> at <strong class="f-racing text-primary">SMISCO</strong></h5>
+                <div class="progress rounded-0 mx-5 mb-1 bg-tea border border-dark">
+                    <% if now.strftime('%k').to_i < 8 || now.strftime('%k').to_i > 17 %>
+                        <div class="progress-bar bg-tea" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                            <%= content_tag(:p, "The shop is not open", class: 'text-secondary mb-0') %>
+                        </div>
+                    <% else %>
+                        <% if now.strftime('%k').to_i >= 8 && now.strftime('%k').to_i < 12 %>
+                            <% color = 'green' %>
+                            <% value = 25 %>
+                            <% message = 'Not very busy' %>
+                        <% elsif now.strftime('%k').to_i >= 12 && now.strftime('%k').to_i < 15 %>
+                            <% color = 'primary' %>
+                            <% value = 50 %>
+                            <% message = 'A little busy' %>
+                        <% elsif now.strftime('%k').to_i >= 15 && now.strftime('%k').to_i < 18 %>
+                            <% color = 'yellow' %>
+                            <% value = 70 %>
+                            <% message = 'A bit busier than usual' %>
+                        <% end %>
+                        <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: <%= value %>%" aria-valuenow="<%= value %>" aria-valuemin="0" aria-valuemax="100">
+                            <%= content_tag(:p, message, class: 'text-tea mb-0') %>
+                        </div>
+                        <%= content_tag(:p, Time.now.strftime('%A, %I:%M %p'), class: 'text-primary', style: 'position: relative; top: 8px; right: -1%;') %>
+                    <% end %>
+                </div>
+                <ul class="mb-1">
+                    <% if now.to_i < Time.parse('2020-11-19').to_i %>
+                        <li id="veterans" class="text-dark">
+                            <strong>VETERANS DAY - 15% off</strong> <em>for veterans and their families.</em> (expires 11/19)
+                        </li>
+                    <% end %>
+                    <li id="survey" class="text-dark">
+                        <strong>NEW WEBSITE - 10% off</strong> <u>your next visit</u> <em>if you complete <%= link_to('this survey', '#', value: 'SURVEY', data: { reflex: 'click->HomeReflex#show_survey', vars: @reflex_variables }) %>!</em> (look for promo code!)
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <%# <div class="col-12"> %>
+            <%# image_tag('richardAndShopNew.jpg', style: "width: 33%;") %>
+        <%# </div> %>
+    </div>
+<% end %>
+
+<% if @reflex_pages['SURVEY'] %>
+    <% content_for :title, 'SURVEY' %>
+    <%= render 'shared/survey' %>
+<% end %>
+
+<footer style="position: fixed; bottom: 0px; left: 0px; width: 100vw;">
+    <div class="container-fluid d-flex justify-content-end">
+        <span class="text-muted">
+            &#169; <strong class="f-racing">SMISCO</strong> <%= Time.now.strftime('%Y') %>
+        </span>
+    </div>
+</footer>
