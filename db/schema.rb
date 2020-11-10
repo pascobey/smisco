@@ -16,7 +16,7 @@ ActiveRecord::Schema.define(version: 2020_11_10_165329) do
   enable_extension "plpgsql"
 
   create_table "surveys", force: :cascade do |t|
-    t.jsonb "response"
+    t.jsonb "responses"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end

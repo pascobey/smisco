@@ -1,1 +1,54 @@
-SURVEY
+<% content_for :title, 'SURVEY' %>
+
+<div class="row mt-2">
+    <div class="offset-1 col-10 px-0">
+        <%= button_tag(raw(render 'graphics/chevron'), class: 'btn btn-outline-secondary', data: { reflex: 'click->HomeReflex#toggle_page', vars: @reflex_variables, page: 'HOME' }) %>
+    </div>
+</div>
+<div class="row mt-2">
+    <div class="offset-1 col-10 bg-primary rounded">
+        <div class="row">
+            <div class="offset-1 col-10 px-0">
+                <h1 class="mb-0">Help Smisco Grow</h1>
+                <p class="text-right mb-0">We want to make servicing your vehicle easier than ever!</p>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <div class="offset-1 col-10 bg-light mt-1 text-dark rounded">
+                <%= form_for @survey, :method => :PUT do |f| %>
+                    <h5 class="mt-1">Which of the following features would you most like to see added to our website?</h5>
+                    <ul class="mb-1">
+                        <li>
+                            <% if @radioed == 'online_service_scheduling' %>
+                                <%= radio_button_tag('feature', 'online_service_scheduling', true) %>
+                            <% else %>
+                                <%= radio_button_tag('feature', 'online_service_scheduling', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
+                            <% end %>
+                            <%= label('feature_Online_service_scheduling', 'Online service scheduling') %>
+                        </li>
+                        <li>
+                            <% if @radioed == 'online_pricing_quotes' %>
+                                <%= radio_button_tag('feature', 'online_pricing_quotes', true) %>
+                            <% else %>
+                                <%= radio_button_tag('feature', 'online_pricing_quotes', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
+                            <% end %>
+                            <%= label('feature_Online_pricing_quotes', 'Online pricing quotes') %>
+                        </li>
+                        <li>
+                            <% if @radioed == 'online_service_progress_tracking' %>
+                                <%= radio_button_tag('feature', 'online_service_progress_tracking', true) %>
+                            <% else %>
+                                <%= radio_button_tag('feature', 'online_service_progress_tracking', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
+                            <% end %>
+                            <%= label('feature_Online_service_progress_tracking', 'Online service progress tracking') %>
+                        </li>
+                        <li class="text-right">
+                            <%= f.hidden_field(:responses) %>
+                            <%= f.submit('Submit Survey!', class: 'btn btn-outline-green') %>
+                        </li>
+                    </ul>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</div>

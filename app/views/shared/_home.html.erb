@@ -1,0 +1,124 @@
+<% content_for :title, 'HOME' %>
+
+<% now = Time.now %>
+
+<div class="row mt-2">
+    <div class="col-12">
+        <%= image_tag("smiscoWebSign.png", class: 'rounded-top shadow-lg', style: 'width: 100%;') %>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-12">
+        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-light">
+            <% ms = '' %>
+            <% @manufacturers.each do |m| %>
+                <% if ms != '' %>
+                    <% ms = "#{ms} - #{m}" %>
+                <% else %>
+                    <% ms = "#{m}" %>
+                <% end %>
+            <% end %>
+            <%= content_tag(:p, "#{ms.upcase} - #{ms.upcase} - #{ms.upcase}", class: 'font-weight-bold mb-0', style: 'font-size: 1.4rem;') %>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-12">
+        <div class="text-center bg-light p-1 rounded border border-three">
+            <h5 class="text-dark mb-1 border-bottom border-three"><em>Right now</em> at <strong class="f-racing text-primary">SMISCO</strong></h5>
+            <div class="progress rounded-0 mx-5 mb-1 bg-tea border border-dark">
+                <% if now.strftime('%k').to_i < 8 || now.strftime('%k').to_i > 17 %>
+                    <div class="progress-bar bg-tea" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                        <%= content_tag(:p, "The shop is not open", class: 'text-secondary mb-0') %>
+                    </div>
+                <% else %>
+                    <% if now.strftime('%k').to_i >= 8 && now.strftime('%k').to_i < 12 %>
+                        <% color = 'green' %>
+                        <% value = 25 %>
+                        <% message = 'Not very busy' %>
+                    <% elsif now.strftime('%k').to_i >= 12 && now.strftime('%k').to_i < 15 %>
+                        <% color = 'primary' %>
+                        <% value = 50 %>
+                        <% message = 'A little busy' %>
+                    <% elsif now.strftime('%k').to_i >= 15 && now.strftime('%k').to_i < 18 %>
+                        <% color = 'yellow' %>
+                        <% value = 70 %>
+                        <% message = 'A bit busier than usual' %>
+                    <% end %>
+                    <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: <%= value %>%" aria-valuenow="<%= value %>" aria-valuemin="0" aria-valuemax="100">
+                        <%= content_tag(:p, message, class: 'text-tea mb-0') %>
+                    </div>
+                    <%= content_tag(:p, Time.now.strftime('%A, %I:%M %p'), class: 'text-primary', style: 'position: relative; top: 8px; right: -1%;') %>
+                <% end %>
+            </div>
+            <ul>
+                <% if now.to_i < Time.parse('2020-11-19').to_i %>
+                    <li id="veterans" class="text-dark">
+                        <strong>VETERANS DAY - 15% off</strong> <em>for veterans and their families.</em> (expires 11/19)
+                    </li>
+                <% end %>
+                <li id="survey" class="text-dark">
+                    <strong>NEW WEBSITE - 10% off</strong> your next visit <em>if you complete <%= link_to('this survey', '#', value: 'SURVEY', data: { reflex: 'click->HomeReflex#toggle_page', vars: @reflex_variables, page: 'SURVEY' }) %>!</em> (look for promo code!)
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-sm-12 col-lg-4">
+        <p id="hours" class="text-center p-1 border border-secondary text-light shadow mb-1 rounded w-100">
+            Monday - Friday<br>
+            8:00 am to 5:30 pm<br>
+            Closed Saturday & Sunday<br>
+        </p>
+    </div>
+    <div class="col-sm-12 col-lg-4">
+        <a href="https://www.google.com/maps/search/?api=1&query=smisco+independent+volvo+import+services+center">
+            <button id="visit-button" class="btn btn-outline-three shadow mb-1 w-100">
+                <p id="address" class="m-0">
+                    2032 Sycamore View,<br>
+                    Suite 104<br>
+                    Memphis, TN 38134, USA
+                </p>
+            </button>
+        </a>
+    </div>
+    <div class="col-sm-12 col-lg-4">
+        <a href="tel:9013723716">
+            <button class="btn btn-outline-green shadow mb-1 w-100">📞 &nbsp;+1 (901) 372-3716</button>    
+        </a>
+        <a href="https://www.facebook.com/pages/category/Automotive-Repair-Shop/SMISCO-Independent-Volvo-and-Import-198717226153/">
+            <button class="btn btn-outline-tea shadow mb-1 w-100"><%= image_tag('findUsOnFacebook.png', style: 'width: 9rem;') %></button>
+        </a>
+    </div>
+</div>
+
+<div class="row mb-1">
+    <div class="col-12">
+        <div class="d-flex flex-row bg-light rounded border border-three">
+            <div class="col-6 mt-1">
+                <h4 class="border-bottom text-dark border-three mb-0">Why Choose Smisco?</h4>
+                <p class='text-dark' style="width: 160%;">
+                In 1997, owner-operator Richard Scobey founded
+                <span class="f-racing">SMISCO</span>. Born and raised in Memphis, TN, Richard always loved cars.
+                He was getting under the hood whenever he could, and, feeling it was his calling in life, decided to pursue a career as a mechanic.
+                The first five and a half years of his career were spent servicing Volvos before he realized
+                he could offer more to his community with his skills and knowledge. At just 23 years-old, he opened his own business.<br>
+                <br>
+                <u>His goal:</u> <em>to offer superb service at outstanding prices</em><br>
+                <u>The result:</u> <em>Memphis's <strong>most trusted</strong> dealer alternative</em><br>
+                <br>
+                He and his team, with a combined experience of more than 60 years, are grateful to have served their community for 23 years!<br><br>
+                <em><q>I fell blessed to have found success in this business. I speak for the entire crew when I say we owe it all to the community that supports us.</q><br>&nbsp;&nbsp;&nbsp;&nbsp; - Richard Scobey</em>
+                </p>
+            </div>
+            <div class="offset-3 col-3 my-auto">
+                <%= button_tag(raw('<strong>Help Us Grow!</strong>'), class: 'btn btn-three shadow mb-1 w-100', data: { reflex: 'click->HomeReflex#toggle_page', vars: @reflex_variables, page: 'SURVEY' }) %>  
+            </div>
+        </div>
+    </div>
+</div>
+

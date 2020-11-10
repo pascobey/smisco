@@ -1,15 +1,21 @@
 class HomeReflex < ApplicationReflex    
 
-    def hide_reflex_pages
+
+    def toggle_page
+        reinstantiate_vars(element.dataset[:vars])
         @reflex_pages.each do |page, b|
             @reflex_pages[page] = false
         end
+        @reflex_pages[element.dataset[:page]] = true
     end
 
-    def show_survey
+    def set_response
         reinstantiate_vars(element.dataset[:vars])
-        @reflex_pages['HOME'] = false
-        @reflex_pages['SURVEY'] = true
+        if @radioed != ''
+            @responses[@radioed] = @responses[@radioed] - 1
+        end
+        @radioed = element.value
+        @responses[@radioed] = @responses[@radioed] + 1
     end
 
 end
