@@ -1,6 +1,6 @@
 <% content_for :title, 'HOME' %>
 
-<% now = Time.now %>
+<% now = Time.zone.now %>
 
 <div class="row mb-2">
     <div class="col-12">
@@ -28,7 +28,7 @@
                     <div class="progress-bar bg-<%= color %>" role="progressbar" style="width: <%= value %>%" aria-valuenow="<%= value %>" aria-valuemin="0" aria-valuemax="100">
                         <%= content_tag(:p, message, class: 'text-tea mb-0') %>
                     </div>
-                    <%= content_tag(:p, Time.now.strftime('%A, %I:%M %p'), class: 'text-primary', style: 'position: relative; top: 8px; right: -1%;') %>
+                    <%= content_tag(:p, now.strftime('%I:%M %p'), class: 'text-primary', style: 'position: relative; top: 8px; right: -1%;') %>
                 <% end %>
             </div>
             <ul>
