@@ -11,7 +11,7 @@
   </head>
   <body>
     <%# notice bar - container-fluid %>
-    <div id="flash" class="container-fluid">
+    <div id="flash" class="container-fluid d-flex justify-content-center">
       <% flash.each do |name, msg| %>
         <%= content_tag :div, msg, id: 'flash-content' %>
       <% end %>
