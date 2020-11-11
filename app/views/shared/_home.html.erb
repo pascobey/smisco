@@ -14,7 +14,7 @@
                 <% else %>
                     <% if now.strftime('%k').to_i >= 8 && now.strftime('%k').to_i < 12 %>
                         <% color = 'green' %>
-                        <% value = 25 %>
+                        <% value = 35 %>
                         <% message = 'Not very busy' %>
                     <% elsif now.strftime('%k').to_i >= 12 && now.strftime('%k').to_i < 15 %>
                         <% color = 'primary' %>
