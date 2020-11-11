@@ -22,7 +22,7 @@
                             <% if @radioed == 'online_service_scheduling' %>
                                 <%= radio_button_tag('feature', 'online_service_scheduling', true) %>
                             <% else %>
-                                <%= radio_button_tag('feature', 'online_service_scheduling', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
+                                <%# radio_button_tag('feature', 'online_service_scheduling', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
                             <% end %>
                             <%= label('feature_Online_service_scheduling', 'Online service scheduling') %>
                         </li>
@@ -30,7 +30,7 @@
                             <% if @radioed == 'online_pricing_quotes' %>
                                 <%= radio_button_tag('feature', 'online_pricing_quotes', true) %>
                             <% else %>
-                                <%= radio_button_tag('feature', 'online_pricing_quotes', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
+                                <%# radio_button_tag('feature', 'online_pricing_quotes', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
                             <% end %>
                             <%= label('feature_Online_pricing_quotes', 'Online pricing quotes') %>
                         </li>
@@ -38,7 +38,7 @@
                             <% if @radioed == 'online_service_progress_tracking' %>
                                 <%= radio_button_tag('feature', 'online_service_progress_tracking', true) %>
                             <% else %>
-                                <%= radio_button_tag('feature', 'online_service_progress_tracking', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
+                                <%# radio_button_tag('feature', 'online_service_progress_tracking', false, data: { reflex: 'click->HomeReflex#set_response', vars: @reflex_variables }) %>
                             <% end %>
                             <%= label('feature_Online_service_progress_tracking', 'Online service progress tracking') %>
                         </li>
