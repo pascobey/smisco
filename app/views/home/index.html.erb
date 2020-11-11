@@ -3,6 +3,28 @@
 
 
 
+<div class="row mt-2">
+    <div class="col-12">
+        <%= image_tag("smiscoWebSign.png", class: 'rounded-top shadow-lg', style: 'width: 100%;') %>
+    </div>
+</div>
+
+<div class="row mb-2">
+    <div class="col-12">
+        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-light">
+            <% ms = '' %>
+            <% @manufacturers.each do |m| %>
+                <% if ms != '' %>
+                    <% ms = "#{ms} - #{m}" %>
+                <% else %>
+                    <% ms = "#{m}" %>
+                <% end %>
+            <% end %>
+            <%= content_tag(:p, "#{ms.upcase} - #{ms.upcase} - #{ms.upcase}", class: 'font-weight-bold mb-0', style: 'font-size: 18px;') %>
+        </div>
+    </div>
+</div>
+
 
 <% if @reflex_pages['HOME'] %>
     <%= render 'shared/home' %>

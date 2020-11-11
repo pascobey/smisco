@@ -2,28 +2,6 @@
 
 <% now = Time.now %>
 
-<div class="row mt-2">
-    <div class="col-12">
-        <%= image_tag("smiscoWebSign.png", class: 'rounded-top shadow-lg', style: 'width: 100%;') %>
-    </div>
-</div>
-
-<div class="row mb-2">
-    <div class="col-12">
-        <div class="d-flex justify-content-between rounded-bottom border border-primary marquee bg-primary text-light">
-            <% ms = '' %>
-            <% @manufacturers.each do |m| %>
-                <% if ms != '' %>
-                    <% ms = "#{ms} - #{m}" %>
-                <% else %>
-                    <% ms = "#{m}" %>
-                <% end %>
-            <% end %>
-            <%= content_tag(:p, "#{ms.upcase} - #{ms.upcase} - #{ms.upcase}", class: 'font-weight-bold mb-0', style: 'font-size: 1.4rem;') %>
-        </div>
-    </div>
-</div>
-
 <div class="row mb-2">
     <div class="col-12">
         <div class="text-center bg-light p-1 rounded border border-three">
@@ -104,7 +82,7 @@
                 <p class='text-dark' style="width: 160%;">
                 In 1997, owner-operator Richard Scobey founded
                 <span class="f-racing">SMISCO</span>. Born and raised in Memphis, TN, Richard always loved cars.
-                He was getting under the hood whenever he could, and, feeling it was his calling in life, decided to pursue a career as a mechanic.
+                Getting under the hood at any opportunity, he began to feel that it was his calling and decided to pursue a career as a mechanic.
                 The first five and a half years of his career were spent servicing Volvos before he realized
                 he could offer more to his community with his skills and knowledge. At just 23 years-old, he opened his own business.<br>
                 <br>
