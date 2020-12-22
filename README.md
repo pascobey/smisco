@@ -1,25 +1,4 @@
-# README
+# SMISCO (marketing site)
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# smisco
+[smiscothedealeralternative.com](http://smiscothedealeralternative.com) is a basic SPA landing page for a small automotive shop in Memphis, TN.
+It is a Ruby on Rails application.
